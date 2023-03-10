@@ -40,3 +40,7 @@ def apple_music_service(apple_id):
 
 def test_apple_music_service(apple_music_service):
     assert apple_music_service.is_connected() == True
+
+    
+# at the very end of it to run the pytest outside
+!pytest test_fixtures.py
