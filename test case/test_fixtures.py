@@ -23,6 +23,20 @@ def apple_music_service(apple_id):
     service = Mock()
     service.is_connected.return_value = True
     return service
-    
+
+def test_apple_music_service(apple_music_service):
+    assert apple_music_service.is_connected() == True
+
+@pytest.fixture
+def apple_id():
+    id = {'username': 'testuser', 'password': 'testpass'}
+    return id
+
+@pytest.fixture
+def apple_music_service(apple_id):
+    service = AppleMusicService(apple_id)
+    service.connect()
+    return service
+
 def test_apple_music_service(apple_music_service):
     assert apple_music_service.is_connected() == True
